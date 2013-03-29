@@ -724,6 +724,12 @@ static int msm_pcm_hw_params(struct snd_pcm_substream *substream,
 			prtd->audio_client,
 			(params_buffer_bytes(params) / params_periods(params)),
 			params_periods(params));
+			params_periods(params));
+		pr_debug("buff bytes = %d, period size = %d,\
+			period count = %d\n", params_buffer_bytes(params),
+			params_periods(params),
+			params_buffer_bytes(params) / params_periods(params));
+
 	if (ret < 0) {
 		pr_err("Audio Start: Buffer Allocation failed \
 					rc = %d\n", ret);
